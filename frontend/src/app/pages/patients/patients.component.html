@@ -1,0 +1,61 @@
+<h2>Patients List 👨‍⚕️</h2>
+<div class="search-box">
+  <input 
+    type="text" 
+    placeholder="🔍 Search by name or email..." 
+    [(ngModel)]="searchText"
+    (input)="filterPatients()"
+  >
+</div>
+
+<div class="form-box">
+  <h3 *ngIf="!isEditMode">Add Patient</h3>
+  <h3 *ngIf="isEditMode">Update Patient ✏️</h3>
+
+  <input type="text" placeholder="Name" [(ngModel)]="name">
+  <input type="email" placeholder="Email" [(ngModel)]="email">
+  <input type="text" placeholder="Phone" [(ngModel)]="phone">
+  <input type="number" placeholder="Age" [(ngModel)]="age">
+
+  <div class="btn-group">
+    <!-- ADD -->
+    <button *ngIf="!isEditMode" (click)="addPatient()">Add Patient</button>
+
+    <!-- UPDATE -->
+    <button *ngIf="isEditMode" (click)="updatePatient()">Update</button>
+
+    <!-- CANCEL -->
+    <button *ngIf="isEditMode" class="cancel" (click)="resetForm()">Cancel</button>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Age</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let patient of filteredPatients">
+      <td>{{ patient.name }}</td>
+      <td>{{ patient.email }}</td>
+      <td>{{ patient.phone }}</td>
+      <td>{{ patient.age }}</td>
+
+      <td class="actions">
+        <button (click)="editPatient(patient)">Edit</button>
+        <button class="delete" (click)="deletePatient(patient._id)">Delete</button>
+      </td>
+    </tr>
+    <tr *ngIf="filteredPatients.length === 0">
+      <td colspan="5" style="text-align:center; padding:20px;">
+        No patients found 😕
+      </td>
+    </tr>
+  </tbody>
+</table>

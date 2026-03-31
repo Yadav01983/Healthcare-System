@@ -1,0 +1,62 @@
+<h2>Doctors 👨‍⚕️</h2>
+
+<!--  ADD / UPDATE FORM  -->
+<div>
+  <h3 *ngIf="!isEditMode">Add Doctor</h3>
+  <h3 *ngIf="isEditMode">Update Doctor ✏️</h3>
+
+  <input type="text" placeholder="Name" [(ngModel)]="name">
+  <input type="text" placeholder="Specialization" [(ngModel)]="specialization">
+  <input type="number" placeholder="Experience (years)" [(ngModel)]="experience">
+  <input type="number" placeholder="Fees" [(ngModel)]="fees">
+  <input type="text" placeholder="Phone" [(ngModel)]="phone">
+
+  <!--  Availability -->
+  <label>
+    <input type="checkbox" [(ngModel)]="available">
+    Available
+  </label>
+
+  <br><br>
+
+  <!-- ADD BUTTON -->
+  <button *ngIf="!isEditMode" (click)="addDoctor()">Add Doctor</button>
+
+  <!-- UPDATE BUTTON -->
+  <button *ngIf="isEditMode" (click)="updateDoctor()">Update Doctor</button>
+
+  <!-- CANCEL BUTTON -->
+  <button *ngIf="isEditMode" (click)="resetForm()">Cancel</button>
+</div>
+
+<br>
+
+<!-- TABLE  -->
+<table border="1" width="100%">
+  <tr>
+    <th>Name</th>
+    <th>Specialization</th>
+    <th>Experience</th>
+    <th>Fees</th>
+    <th>Phone</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+
+  <tr *ngFor="let doc of doctors">
+    <td>{{ doc.name }}</td>
+    <td>{{ doc.specialization }}</td>
+    <td>{{ doc.experience }} yrs</td>
+    <td>₹{{ doc.fees }}</td>
+    <td>{{ doc.phone }}</td>
+    <td>
+      <span *ngIf="doc.available">✅ Available</span>
+      <span *ngIf="!doc.available">❌ Not Available</span>
+    </td>
+
+    <td>
+      <button (click)="editDoctor(doc)">Edit</button>
+      <button (click)="deleteDoctor(doc._id)">Delete</button>
+    </td>
+  </tr>
+</table>

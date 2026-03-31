@@ -1,0 +1,85 @@
+/* Center the page container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Card container */
+.login-card {
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Heading */
+.login-card h2 {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+/* Input fields */
+.login-card input[type="text"],
+.login-card input[type="email"],
+.login-card input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+/* Input focus effect */
+.login-card input:focus {
+  border-color: #2575fc;
+  box-shadow: 0 0 8px rgba(37, 117, 252, 0.4);
+  outline: none;
+}
+
+/* Button styling */
+.login-card button {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: #2575fc;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+/* Button hover effect */
+.login-card button:hover {
+  background-color: #145bcc;
+  transform: translateY(-2px);
+}
+
+/* Link styling */
+.login-card a {
+  display: block;
+  text-align: center;
+  color: #2575fc;
+  text-decoration: underline;
+  margin-top: 15px;
+  transition: color 0.3s;
+}
+
+.login-card a:hover {
+  color: #145bcc;
+}
+
+/* Spacing for line breaks */
+br {
+  line-height: 1.5rem;
+}

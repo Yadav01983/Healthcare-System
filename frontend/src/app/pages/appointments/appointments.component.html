@@ -1,0 +1,89 @@
+<h2>Appointments </h2>
+
+<!--  FORM  -->
+<div>
+  <h3 *ngIf="!isEditMode">Add Appointment</h3>
+  <h3 *ngIf="isEditMode">Update Appointment ✏️</h3>
+
+  <!--  SELECT PATIENT -->
+  <select [(ngModel)]="selectedPatient">
+    <option value="">Select Patient</option>
+    <option *ngFor="let p of patients" [value]="p._id">
+      {{ p.name }}
+    </option>
+  </select>
+
+  <!--  SELECT DOCTOR -->
+  <select [(ngModel)]="selectedDoctor">
+    <option value="">Select Doctor</option>
+    <option *ngFor="let d of doctors" [value]="d._id">
+      {{ d.name }} ({{ d.specialization }})
+    </option>
+  </select>
+
+  <input type="date" [(ngModel)]="date">
+  <input type="text" placeholder="Time (e.g. 10:00 AM)" [(ngModel)]="time">
+  <input type="text" placeholder="Reason" [(ngModel)]="reason">
+
+  <!--  ADD BUTTON -->
+  <button *ngIf="!isEditMode" (click)="addAppointment()">
+    Add Appointment
+  </button>
+
+  <!--  UPDATE BUTTON -->
+  <button *ngIf="isEditMode" (click)="updateAppointment()">
+    Update Appointment
+  </button>
+
+  <!--  CANCEL BUTTON -->
+  <button *ngIf="isEditMode" (click)="resetForm()">
+    Cancel
+  </button>
+</div>
+
+<br>
+
+<!-- TABLE  -->
+<table border="1" width="100%">
+  <tr>
+    <th>Patient</th>
+    <th>Doctor</th> 
+    <th>Date</th>
+    <th>Time</th>
+    <th>Reason</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+
+  <tr *ngFor="let appt of appointments">
+    <td>{{ appt.patient?.name }}</td>
+
+    <!--  SHOW DOCTOR -->
+    <td>
+      {{ appt.doctor?.name }} 
+      ({{ appt.doctor?.specialization }})
+    </td>
+
+    <td>{{ appt.date | date }}</td>
+    <td>{{ appt.time }}</td>
+    <td>{{ appt.reason }}</td>
+
+    <!--  STATUS DROPDOWN -->
+    <td>
+      <select
+        [ngModel]="appt.status"
+        (ngModelChange)="changeStatus(appt._id, $event)"
+      >
+        <option value="Pending">Pending</option>
+        <option value="Completed">Completed</option>
+        <option value="Cancelled">Cancelled</option>
+      </select>
+    </td>
+
+    <!--ACTION BUTTONS -->
+    <td>
+      <button (click)="editAppointment(appt)">Edit</button>
+      <button (click)="deleteAppointment(appt._id)">Delete</button>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,73 @@
+<div class="dashboard">
+
+  
+  <div class="sidebar">
+    <h2>Healthcare</h2>
+    <ul>
+      <li routerLink="/dashboard">🏠 Dashboard</li>
+      <li routerLink="/patients">👨‍⚕️ Patients</li>
+      <li routerLink="/appointments">📅 Appointments</li>
+      <li routerLink="/doctors">🧑‍⚕️ Doctors</li> 
+      <li routerLink="/settings">⚙️ Settings</li>
+    </ul>
+  </div>
+
+  <!--  MAIN CONTENT -->
+  <div class="main">
+
+    <div class="header">
+      <h1>Dashboard</h1>
+      <button (click)="logout()">Logout</button>
+    </div>
+
+    <!-- MAIN CARDS  -->
+    <div class="cards">
+
+      <!-- TOTAL PATIENTS -->
+      <div class="card">
+        <h3>Total Patients</h3>
+        <p>{{ totalPatients }}</p>
+      </div>
+
+      <!-- TOTAL APPOINTMENTS -->
+      <div class="card">
+        <h3>Appointments</h3>
+        <p>{{ totalAppointments }}</p>
+      </div>
+
+      <!-- TOTAL DOCTORS  -->
+      <div class="card">
+        <h3>Doctors</h3>
+        <p>{{ totalDoctors }}</p>
+      </div>
+
+    </div>
+
+    <!--  STATUS CARDS -->
+    <h2 style="margin-top: 30px;">Appointment Status</h2>
+
+    <div class="cards">
+
+      <!-- PENDING -->
+      <div class="card">
+        <h3>Pending</h3>
+        <p>{{ pendingAppointments }}</p>
+      </div>
+
+      <!-- COMPLETED -->
+      <div class="card">
+        <h3>Completed</h3>
+        <p>{{ completedAppointments }}</p>
+      </div>
+
+      <!-- CANCELLED -->
+      <div class="card">
+        <h3>Cancelled</h3>
+        <p>{{ cancelledAppointments }}</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

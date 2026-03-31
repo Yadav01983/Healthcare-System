@@ -120,12 +120,22 @@ MONGO_URI=your_mongo_uri
 JWT_SECRET=your_secret
 ```
 
-⚠️ Never upload `.env` to GitHub.
-
 ---
 
 ## 📸 Screenshots 
+* This is our main DashBoard Page
 <img width="1873" height="895" alt="image" src="https://github.com/user-attachments/assets/8fcaf95b-b4d7-4cd0-a009-e548fead1d2f" />
+
+* This is Patients list page
+<img width="1908" height="883" alt="image" src="https://github.com/user-attachments/assets/a6ed8f17-7d97-4517-8b6b-e3eaa6c1773f" />
+
+* This is Appointment Page
+ <img width="1907" height="432" alt="image" src="https://github.com/user-attachments/assets/dca9d0db-e702-4903-9460-b0f5739ff2b6" />
+
+* This is Doctors List Page 
+<img width="1908" height="448" alt="image" src="https://github.com/user-attachments/assets/b96611d0-eb1c-4aa9-9a39-2ad5641402b2" />
+
+
 
 
 
